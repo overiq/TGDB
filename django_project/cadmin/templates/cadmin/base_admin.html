@@ -1,0 +1,36 @@
+{% extends "cadmin/base.html" %}
+
+{% block content %}
+
+    <div class="header">
+        <div class="section-inner clearfix">
+            <h2 class="title"><a href="{% url 'post_list' %}">The Great Django Blog - Admin Panel</a></h2>
+            <div class="user-welcome">
+                <p>Welcome {{ request.user.username }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="section-inner">
+            <div class="sidebar">
+                <ul>
+                    <li><a href="{% url 'post_list' %}">Post</a></li>
+                    <li><a href="">Category</a></li>
+                    <li><a href="">Tag</a></li>
+                    <li><a href="">Account Info</a></li>
+                    <li><a href="">Change Password</a></li>
+                    <li><a target="_blank" href="">View Site</a></li>
+                    <li><a href="">Logout</a></li>
+                </ul>
+            </div>
+
+            {% block main %}
+
+            {% endblock %}
+
+        </div>
+
+    </div>
+
+{% endblock %}
