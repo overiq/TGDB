@@ -2,6 +2,7 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
+    url(r'^feedback/$', views.feedback, name='feedback'),
     url(r'^blog/$', views.test_redirect, name='test_redirect'),
     url(r'^category/(?P<category_slug>[\w-]+)/$', views.post_by_category, name='post_by_category'),
     url(r'^tag/(?P<tag_slug>[\w-]+)/$', views.post_by_tag, name='post_by_tag'),
