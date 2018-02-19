@@ -1,0 +1,36 @@
+{% extends "blog/base.html"  %}
+
+{% block title %}
+{{ tag|title }} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+<div class="content">
+    <div class="section-inner clearfix">
+
+        <h4>All the posts tagged with - {{ tag.name }}</h4>
+
+        {% for post in posts %}
+        <h3>
+            <a href="http://127.0.0.1:8000/blog/{{ post.pk }}/">{{ post.title|capfirst }}</a>
+        </h3>
+        <p>
+            <span>Date: {{ post.pub_date }} </span> |
+            <span>Category: <a href="http://127.0.0.1:8000/category/{{ post.category.slug }}">{{ post.category.name }}</a> </span> |
+            <span>Tag:
+            {% for tag in post.tags.all %}
+                  <a href="http://127.0.0.1:8000/tag/{{ tag.slug }}">{{ tag.name }}</a>
+            {% empty %}
+                  None
+            {% endfor %}
+            </span>
+        </p>
+        {% empty %}
+        <p>There are not posts tagged with {{ tag }}</p>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}
