@@ -1,0 +1,9 @@
+<span>Date: {{ post.pub_date|date:"d M y h:i a" }}</span> |
+<span>Category : <a href="{{ post.category.get_absolute_url }}">{{ post.category }}</a></span> |
+<span>Tag :
+  {% for tag in post.tags.all %}
+      <a href="{{ tag.get_absolute_url }}">{{ tag }}</a>
+  {% empty %}
+      None
+  {% endfor %}
+</span>

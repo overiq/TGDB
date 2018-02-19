@@ -13,18 +13,10 @@
 
         {% for post in posts %}
         <h3>
-            <a href="http://127.0.0.1:8000/blog/{{ post.pk }}/">{{ post.title|capfirst }}</a>
+            <a href="{{ post.get_absolute_url }}">{{ post.title|capfirst }}</a>
         </h3>
         <p>
-            <span>Date: {{ post.pub_date }} </span> |
-            <span>Category: <a href="http://127.0.0.1:8000/category/{{ post.category.slug }}">{{ post.category.name }}</a> </span> |
-            <span>Tag:
-            {% for tag in post.tags.all %}
-                  <a href="http://127.0.0.1:8000/tag/{{ tag.slug }}">{{ tag.name }}</a>
-            {% empty %}
-                  None
-            {% endfor %}
-            </span>
+            {% include 'blog/post_info.html' %}
         </p>
         {% empty %}
         <p>There are not posts tagged with {{ tag }}</p>
