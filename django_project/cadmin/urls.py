@@ -3,6 +3,7 @@ from . import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    url(r'^register/$', views.register, name='register'),
     url(r'^password-change-done/$',
         auth_views.password_change_done,
         {'template_name': 'cadmin/password_change_done.html'},
