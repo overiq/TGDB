@@ -1,0 +1,259 @@
+/* reset browser styles */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1.2;
+}
+ol {
+	padding-left: 1.4em;
+	list-style: decimal;
+}
+ul {
+	padding-left: 1.4em;
+	list-style: square;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* end reset browser styles */
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 62.5%;
+    line-height: 1.5;
+    margin: 0 0;
+    /*max-width: 1366px;*/
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/*h1{*/
+        /*font-size: 2.9em;*/
+        /*font-weight: 600;*/
+/*}*/
+
+h1{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+h2{
+    font-size: 19px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+h3{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+h4{
+    font-size: 17px;
+    font-weight: 600;
+}
+
+p{
+    margin: 10px 0px;
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 0 10px 0;
+}
+
+a{
+    text-decoration: none;
+    /*color: #000;*/
+}
+
+div.section-inner{
+    max-width: 1100px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+
+.clearfix:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.login {
+    font-size: 14px;
+    width: 400px;
+    margin: 20px auto;
+    border: 1px solid #aba8a8;
+    padding: 0px 0px 25px 50px;
+}
+
+.logout {
+    width: 760px;
+    margin: 50px auto;
+    border: 1px solid #aba8a8;
+    padding: 24px 30px;
+}
+
+td {
+    padding: 2px;
+}
+
+.header p{
+    margin: 0;
+}
+
+.header h2{
+    float: left;
+}
+
+.header .user-welcome p{
+    float: right;
+    font-size: 19px;
+    color: #fff;
+}
+
+.header{
+    background-color: #3a3636;
+    padding: 5px 0;
+}
+
+.header h2 {
+    margin: 0;
+    color: #fff;
+}
+
+.sidebar a:hover {
+    /*background-color: #4a3f3f;*/
+    text-decoration: underline;
+}
+
+.sidebar ul{
+    padding: 0;
+    /*display: inline-block;*/
+    list-style-type: none;
+    border: 1px solid;
+    /*background-color: #f7f1f1;*/
+    padding: 14px 9px;
+    color: #fff;
+}
+
+.sidebar ul a {
+    /*color: #fff;*/
+    display: inline-block;
+    width: 100%;
+    line-height: 1.5;
+    padding: 10px 0;
+}
+
+.sidebar{
+    position: fixed;
+    width: 210px;
+    height: calc(100% - 113px);
+    overflow: auto;
+    font-size: 16px;
+    overflow-x: hidden;
+    color: #000;
+    border-right: 1px solid #e3e3e3;
+}
+.sidebar ul{
+    list-style-type: none;
+}
+
+.content {
+    margin-top: 16px;
+}
+
+.main{
+    margin-left: 250px;
+    font-size: 16px;
+}
+
+.main a:hover{
+    text-decoration: underline;
+}
+
+.main h1{
+    font-size: 16px;
+}
+
+.pagination{
+    margin: 20px 0 20px 250px;
+}
+
+.footer{
+    text-align: center;
+}
+
+table{
+    border-collapse: collapse;
+    font-size: 15px;
+    /*margin: 15px auto;*/
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    /*border: 1px solid #e3e3e3;*/
+    padding: 10px 6px;
+    /*text-align: center;*/
+}
+
+table th {
+    /*background-color: #e3e3e3;*/
+}
+
+td.post-title {
+    width: 400px;
+}
+
+.header a{
+    color: #fff;
+}
+
+.main th{
+    text-align: left;
+}
+
+
+
+.tbl-class, .tbl-class th, .tbl-class td {
+    border: 1px solid #e3e3e3;
+    padding: 10px 6px;
+    /*text-align: center;*/
+}
+
+p.button {
+    border: 1px solid;
+    display: inline-block;
+    padding: 1px 9px;
+    margin: 0 0 15px 0;
+    border-radius: 2px;
+}
+
+p.button:hover{
+    /*background-color: #3a3636;*/
+    /*color: #fff;*/
+    cursor: pointer;
+}
+
+.tbl-class th { background-color: #e3e3e3; }
+.tbl-class tr:nth-of-type(odd) { background-color: #f5f4f4; }

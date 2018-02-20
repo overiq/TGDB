@@ -2,6 +2,11 @@
 <html>
 <head>
     <title>{% block title %}The Great Django Blog{% endblock %}</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <script src="{% static 'blog/js/jquery.js' %}"></script>
 </head>
 <body>
 

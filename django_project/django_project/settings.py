@@ -145,3 +145,9 @@ ADMINS = [
 MANAGERS = ADMINS
 
 ########################
+
+## STATIC FILES ##
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]

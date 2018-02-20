@@ -1,0 +1,72 @@
+body{
+    font-family: "Open Sans",'MS Sans Serif', sans-serif, Verdana, Arial;
+}
+
+.section-inner{
+    max-width: 960px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+h1{
+    margin: 20px 0px;
+}
+
+h2{
+    margin: 20px 0px;
+}
+
+h3 {
+    margin: 20px 0px;
+}
+
+p{
+    margin: 20px 0px;
+}
+
+p.info{
+    margin-top: 5px;
+}
+
+.navbar{
+    background-color: black;
+    text-align: center;
+}
+
+.navbar a{
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+table td{
+    padding: 5px;
+    border: none;
+    outline: none;
+}
+
+.errorlist{
+    color: red;
+}
+
+.content a{
+    text-decoration: none;
+}
+
+.content a:hover{
+    text-decoration: underline;
+}
+
+.pagination a{
+    text-decoration: none;
+}
+
+.pagination a:hover{
+    text-decoration: underline;
+}
+
+.footer{
+    text-align: center;
+    font-size: 12px;
+}
