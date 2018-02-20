@@ -2,6 +2,9 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
+    url(r'^login/$', views.login, name='blog_login'),
+    url(r'^logout/$', views.logout, name='blog_logout'),
+    url(r'^admin_page/$', views.admin_page, name='admin_page'),
     url(r'^lousy-login/$', views.lousy_login, name='lousy_login'),
     url(r'^lousy-secret/$', views.lousy_secret, name='lousy_secret'),
     url(r'^lousy-logout/$', views.lousy_logout, name='lousy_logout'),
