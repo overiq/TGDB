@@ -1,0 +1,43 @@
+{% extends "blog/base.html"  %}
+
+{% block title %}
+    Lousy Login - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="content">
+        <div class="section-inner clearfix">
+
+        <h3>Login Form</h3>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td><label for="id_username">Enter Username</label></td>
+                    <td><input type="text" id="id_username" name="username"></td>
+                </tr>
+                <tr>
+                    <td><label for="id_password">Enter Password</label></td>
+                    <td><input type="text" id="id_password" name="password"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" name="submit" value="Submit"></td>
+                </tr>
+            </table>
+        </form>
+
+        </div>
+    </div>
+
+{% endblock %}
