@@ -23,4 +23,20 @@
         </div>
     </div>
 
+    <div class="pagination">
+        <div class="section-inner clearfix">
+            <p>
+                {% if posts.has_previous %}
+                <a href="?page={{ posts.previous_page_number }}">&lt; Prev</a> |
+                {% endif %}
+
+                {% if posts.has_next %}
+                <a href="?page={{ posts.next_page_number }}">Next &gt;</a>
+                {% endif %}
+
+                <span>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
+            </p>
+        </div>
+    </div>
+
 {% endblock %}

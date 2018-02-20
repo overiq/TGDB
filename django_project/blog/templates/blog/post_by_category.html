@@ -9,20 +9,36 @@
     <div class="content">
         <div class="section-inner clearfix">
 
-    <h4>All the posts under category - {{ category.name }}</h4>
+            <h4>All the posts under category - {{ category.name }}</h4>
 
-    {% for post in posts %}
-        <h3>
-            <a href="{{ post.get_absolute_url }}">{{ post.title|capfirst }}</a>
-        </h3>
-        <p class="post-info">
-            {% include 'blog/post_info.html' %}
-        </p>
-    {% empty %}
-        <p>There are not posts under {{ category }}</p>
-    {% endfor %}
+            {% for post in posts %}
+            <h3>
+                <a href="{{ post.get_absolute_url }}">{{ post.title|capfirst }}</a>
+            </h3>
+            <p class="post-info">
+                {% include 'blog/post_info.html' %}
+            </p>
+            {% empty %}
+            <p>There are not posts under {{ category }}</p>
+            {% endfor %}
 
-            </div>
+        </div>
+    </div>
+
+    <div class="pagination">
+        <div class="section-inner clearfix">
+            <p>
+                {% if posts.has_previous %}
+                <a href="?page={{ posts.previous_page_number }}">&lt; Prev</a> |
+                {% endif %}
+
+                {% if posts.has_next %}
+                <a href="?page={{ posts.next_page_number }}">Next &gt;</a>
+                {% endif %}
+
+                <span>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
+            </p>
+        </div>
     </div>
 
 {% endblock %}
