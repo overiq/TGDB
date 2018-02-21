@@ -1,0 +1,79 @@
+{% extends "cadmin/base_admin.html" %}
+
+{% block title %}
+    All Posts - {{ block.super }}
+{% endblock %}
+
+{% block main %}
+
+    <div class="main">
+
+        <p>&#187; <a href="{% url 'post_list' %}">All Post</a> </p>
+
+        <p class="button"><a href="{% url 'post_add' %}">Add Post &raquo;</a></p>
+
+        {% if messages %}
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <p class="count">Total Posts: {{ posts.paginator.count }}</p>
+        
+            {% for post in posts %}
+                {% if forloop.first     %}
+                    <table class="tbl-class">
+                        <tr>
+                            <th>Title</th>
+                            <th>Category</th>
+                            {% if request.user.is_superuser %}
+                                <th>Author</th>
+                            {% endif %}
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                {% endif %}
+
+                <tr>
+                    <td class="post-title" title="{{ post.title }}">{{ post.title|truncatechars:50 }}</td>
+                    <td>{{ post.category }}</td>
+                    {% if request.user.is_superuser %}
+                        <td>{{ post.author }}</td>
+                    {% endif %}
+
+                    <td title="{{ post.pub_date }}">{{ post.pub_date|date:"d M Y" }}</td>
+                    <td>
+                        <a href="{% url 'post_update' post.id %}">Edit</a> |
+                        <a href="{% url 'post_delete' post.id %}?next={{ request.get_full_path }}" onclick=" return confirm('Are you sure ?')">Delete</a>
+                    </td>
+                </tr>
+
+                {% if forloop.last %}
+                    </table>
+                {% endif %}
+
+            {% empty %}
+                No Posts
+            {% endfor %}
+
+    </div>
+
+    {% if posts %}
+
+        <div class="pagination">
+            <p>
+                {% if posts.has_previous %}
+                    <a href="?page={{ posts.previous_page_number }}">&lt; Prev</a> |
+                {% endif %}
+
+                {% if posts.has_next %}
+                    <a href="?page={{ posts.next_page_number }}">Next &gt;</a>
+                {% endif %}
+
+                <span>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
+            </p>
+        </div>
+
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "cadmin/base_admin.html" %}
+
+{% block title %}
+    Add New Category - {{ block.super }}
+{% endblock %}
+
+{% block main %}
+
+    <div class="main">
+
+        <p>&#187; <a href="{% url 'category_list' %}">All Category</a> &#187; Add Category</p>
+
+        <h3>Add Category</h3>
+
+        {% if messages %}
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        {{ form.non_field_errors }}
+
+        <form action="" method="post">
+                {% csrf_token %}
+            <table>
+                <tr>
+                    <td>{{ form.name.label_tag }}</td>
+                    <td>
+                        {{ form.name.errors }}
+                        {{ form.name }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{ form.slug.label_tag }}</td>
+                    <td>
+                        {{ form.slug.errors }}
+                        {{ form.slug }}
+                    </td>
+                </tr>
+
+                {% if request.user.is_superuser %}
+                    <tr>
+                        <td>{{ form.author.label_tag }}</td>
+                        <td>
+                            {{ form.author.errors }}
+                            {{ form.author }}
+                        </td>
+                    </tr>
+                {% endif %}
+
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Add Category"></td>
+                </tr>
+
+            </table>
+        </form>
+
+    </div>
+
+{% endblock %}

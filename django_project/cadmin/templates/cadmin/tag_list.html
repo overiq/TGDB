@@ -1,0 +1,72 @@
+{% extends "cadmin/base_admin.html" %}
+
+{% block title %}
+    All Tags - {{ block.super }}
+{% endblock %}
+
+{% block main %}
+
+   <div class="main">
+
+        <p>&#187; <a href="{% url 'tag_list' %}">All Tags</a></p>
+
+        <p class="button"><a href="{% url 'tag_add' %}">Add Tag &raquo;</a></p>
+
+        {% if messages %}
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <p class="count">Total Tags: {{ tags.paginator.count }}</p>
+
+            {% for tag in tags %}
+                {% if forloop.first     %}
+                    <table class="tbl-class">
+                        <tr>
+                            <th>Name</th>
+                            <th>Slug</th>
+                            <th>Author</th>
+                            <th>Action</th>
+                        </tr>
+                {% endif %}
+
+                <tr>
+                    <td class="post-title">{{ tag.name }}</td>
+                    <td>{{ tag.slug }}</td>
+                    <td>{{ tag.author.user }}</td>
+                    <td>
+                        <a href="{% url 'tag_update' tag.id %}">Edit</a> |
+                        <a href="{% url 'tag_delete' tag.id %}?next={{ request.get_full_path }}" onclick=" return confirm('Are you sure ?')">Delete</a>
+                    </td>
+                </tr>
+
+                {% if forloop.last %}
+                    </table>
+                {% endif %}
+
+            {% empty %}
+                No Tags
+            {% endfor %}
+
+   </div>
+
+    {% if tags %}
+
+        <div class="pagination">
+            <p>
+                {% if tags.has_previous %}
+                    <a href="?page={{ tags.previous_page_number }}">&lt; Prev</a> |
+                {% endif %}
+
+                {% if tags.has_next %}
+                    <a href="?page={{ tags.next_page_number }}">Next &gt;</a>
+                {% endif %}
+
+                <span>Page {{ tags.number }} of {{ tags.paginator.num_pages }}</span>
+            </p>
+        </div>
+
+    {% endif %}
+
+{% endblock %}

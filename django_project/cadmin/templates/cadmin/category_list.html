@@ -1,0 +1,74 @@
+{% extends "cadmin/base_admin.html" %}
+
+{% block title %}
+    All Posts - {{ block.super }}
+{% endblock %}
+
+{% block main %}
+
+    <div class="main">
+
+        <p>&#187; <a href="{% url 'category_list' %}">All Categories</a></p>
+
+        <p class="button"><a href="{% url 'category_add' %}">Add Category &raquo;</a></p>
+
+        {% if messages %}
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <p class="count">Total Categories: {{ categories.paginator.count }}</p>
+
+            {% for category in categories %}
+                {% if forloop.first     %}
+                    <table class="tbl-class">
+                        <tr>
+                            <th>Name</th>
+                            <th>Slug</th>
+                            <th>Author</th>
+                            <th>Action</th>
+                        </tr>
+                {% endif %}
+
+                <tr>
+                    <td class="post-title" title="{{ category.name }}">{{ category.name|truncatechars:50 }}</td>
+                    <td>{{ category.slug }}</td>
+                    <td>{{ category.author.user.username }}</td>
+                    <td>
+                        <a href="{% url 'category_update' category.id %}">Edit</a> |
+                        <a href="{% url 'category_delete' category.id %}?next={{ request.get_full_path }}" onclick=" return confirm('Are you sure ?')">Delete</a>
+                    </td>
+                </tr>
+
+                {% if forloop.last %}
+                    </table>
+                {% endif %}
+
+            {% empty %}
+                No Posts
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+    {% if categories %}
+
+        <div class="pagination">
+            <p>
+                {% if categories.has_previous %}
+                    <a href="?page={{ categories.previous_page_number }}">&lt; Prev</a> |
+                {% endif %}
+
+                {% if categories.has_next %}
+                    <a href="?page={{ categories.next_page_number }}">Next &gt;</a>
+                {% endif %}
+
+                <span>Page {{ categories.number }} of {{ categories.paginator.num_pages }}</span>
+            </p>
+        </div>
+
+    {% endif %}
+
+{% endblock %}

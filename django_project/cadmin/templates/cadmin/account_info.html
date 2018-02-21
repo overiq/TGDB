@@ -1,0 +1,40 @@
+{% extends "cadmin/base_admin.html" %}
+
+{% block title %}
+    All Posts - {{ block.super }}
+{% endblock %}
+
+{% block main %}
+
+    <div class="main">
+
+    <p>&#187; <a href="{% url 'account_info' %}">Account Info</a></p>
+
+        <table>
+            <tr>
+                <td>Username</td>
+                <td>{{ request.user.username }}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>
+                    {% if request.user.email %}
+                    {{ request.user.email }}
+                    {% else %}
+                        NA
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>Date Joined</td>
+                <td>{{ request.user.date_joined }}</td>
+            </tr>
+            <tr>
+                <td>Last Login</td>
+                <td>{{ request.user.last_login }}</td>
+            </tr>
+        </table>
+
+    </div>
+
+{% endblock %}
