@@ -1,0 +1,13 @@
+{% extends "cadmin/base.html" %}
+
+{% block title %}
+    Create Account - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="logout">
+        <p>Account activated! Please <a href="{% url 'login' %}">login</a></p>
+</div>
+
+{% endblock %}

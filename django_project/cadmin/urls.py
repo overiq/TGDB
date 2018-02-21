@@ -3,6 +3,7 @@ from . import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    url(r'^activate/account/$', views.activate_account, name='activate'),
     url(r'^register/$', views.register, name='register'),
     url(r'^password-change-done/$',
         auth_views.password_change_done,
