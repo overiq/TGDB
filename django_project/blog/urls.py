@@ -1,8 +1,15 @@
 from django.conf.urls import url
 from . import views
 from django.contrib.flatpages import views as flat_views
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import PostSitemap
+
+sitemaps = {
+    'posts': PostSitemap
+}
 
 urlpatterns = [
+    url(r'^sitemap\.xml/$', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
     url(r'^about/$', flat_views.flatpage, {'url': '/about/'}, name='about'),
     url(r'^eula/$', flat_views.flatpage, {'url': '/eula/'}, name='eula'),
     url(r'^login/$', views.login, name='blog_login'),
