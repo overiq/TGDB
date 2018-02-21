@@ -1,7 +1,10 @@
 from django.conf.urls import url
 from . import views
+from django.contrib.flatpages import views as flat_views
 
 urlpatterns = [
+    url(r'^about/$', flat_views.flatpage, {'url': '/about/'}, name='about'),
+    url(r'^eula/$', flat_views.flatpage, {'url': '/eula/'}, name='eula'),
     url(r'^login/$', views.login, name='blog_login'),
     url(r'^logout/$', views.logout, name='blog_logout'),
     url(r'^admin_page/$', views.admin_page, name='admin_page'),

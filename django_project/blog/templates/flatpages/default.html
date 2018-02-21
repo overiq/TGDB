@@ -1,0 +1,21 @@
+{% extends "blog/base.html"  %}
+
+{% block title %}
+    {{ flatpage.title }} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="content">
+        <div class="section-inner clearfix">
+
+        <h1>{{ flatpage.title }}</h1>
+
+        <p>
+            {{ flatpage.content|linebreaks }}
+        </p>
+
+        </div>
+    </div>
+
+{% endblock %}
