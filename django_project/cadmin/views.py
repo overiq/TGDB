@@ -137,7 +137,8 @@ def register(request):
                     request.POST['username'],
                     request.POST['email'],
                     request.POST['password1'],
-                    is_active=0
+                    is_active=0,
+                    is_staff=True
                 )
 
                 author = Author()

@@ -15,7 +15,7 @@
             | <span><a href="{% url 'post_update' post.id  %}">Edit</a></span>
         </p>
         <p>
-            {{ post.content }}
+            {{ post.content|safe }}
         </p>
 
     </div>
